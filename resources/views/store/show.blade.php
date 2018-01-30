@@ -19,7 +19,7 @@
 						<span class="label label-success">Precio: ${{ number_format($products->price,2) }}</span>
 					</h3>
 					<p>
-						<a class="btn btn-warning btn-block" href="">
+						<a class="btn btn-warning btn-block" href="{{ route('cart-add', $products->slug) }}">
 							Agregar 
 							<i class="fa fa-cart-plus fa-1x"></i>
 						</a>

@@ -46,7 +46,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Mi carrito <i class="fa fa-shopping-cart"></i></a></li>
+                        <li><a href="{{ route('cart-show') }}">Mi carrito <i class="fa fa-shopping-cart"></i></a></li>
                         <li><a href="">Conocenos</a></li>
                         <li><a href="">Contacto</a></li>
                         <!-- Authentication Links -->
@@ -64,7 +64,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
