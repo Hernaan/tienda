@@ -67,9 +67,11 @@
 			<i class="fa fa-chevron-circle-left"></i>
 			Seguir comprando
 		</a>
+		@if(count($cart))
 		<a href="{{ route('order-detail') }}" class="btn btn-primary">
 			Continuar <i class="fa fa-chevron-circle-right"></i>
 		</a>
+		@endif
 	</p>
 	</div>
 </div>

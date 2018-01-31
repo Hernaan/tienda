@@ -8,6 +8,7 @@
 		<div class="table-cart">
 		<div class="table-responsive">
 			<h3>Datos del usuario</h3>
+			<form action="" class="form-horizontal" method="post">
 			<table class="table table-striped table-hover table-bordered">
 				<tr>
 					<td class="danger">Nombre: </td><td>{{ Auth::user()->name . " " . Auth::user()->last_name }}</td>
@@ -48,11 +49,12 @@
 				<a href="{{ route('cart-show') }}" class="btn btn-primary">
 					<i class="fa fa-chevron-circle-left"></i> Regresar
 				</a>
-				<a href="#" class="btn btn-warning">
+				<a href="{{ route('realizar-pedido') }}" class="btn btn-warning">
 					Pedir <i class="fa fa-chevron-circle-right"></i>
 				</a>
 			</p>	
 		</div>
+		</form>
 	</div>
 	</div>
 </div>

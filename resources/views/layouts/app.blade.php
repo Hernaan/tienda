@@ -19,6 +19,9 @@
 
 </head>
 <body>
+    @if(\Session::has('message'))
+        @include('store.message')
+    @endif
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

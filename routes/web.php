@@ -54,3 +54,8 @@ Route::get('order-detail',[//cuando se quiera ver el detalle del pedido
 	'as' => 'order-detail',
 	'uses' => 'CartController@orderDetail'//cuando inicie sesion se muestra el detalle del pedido
 ]);
+//practica
+Route::get('pedido', array(
+	'as' => 'realizar-pedido',
+	'uses' => 'PagoController@postPedido'
+));
