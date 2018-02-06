@@ -45,7 +45,7 @@ Route::get('cart/trash',[
 ]);
 
 Route::get('cart/update/{product}/{quantity?}',[
-	'as' => 'cart-update',
+	'as' => 'cart.update',
 	'uses' => 'CartController@update'
 ]);
 //validacion para detalle de pedido

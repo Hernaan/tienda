@@ -28,25 +28,42 @@
 				
 					@foreach($cart as $item)
 						<tr>
-							<th> <img src="{{ $item->image}}" alt=""></th>
+							<th><img src="{{ $item->image}}" alt=""></th>
 							<th>{{ $item->name }}</th>
 							<th>{{ number_format($item->price,2) }}</th>
 							<th>
-							
-								<input type="number" 
-									   min="1" max="100" 
-									   value="{{ $item->quantity }}"
-
-									   id="product_{{ $item->id }}">
-
-								<a href="#" class="btn btn-warning btn-update-item" 
-								   data-href="{{ route('cart-update', $item->slug) }}"
-								   data-id="{{ $item->slug }}">
-									<i class="fa fa-refresh"></i>
-								</a>
+								<input type="number" min="1" max="100" value="{{ $item->quantity }}" id="product_{{ $item->id }}">
+								<a href="#" class="btn btn-warning btn-update-item" data-href="{{ route('cart.update', $item->slug) }}" data-id="{{ $item->id }}"><i class="fa fa-refresh"></i></a>
 							</th>
-							<th>${{ number_format($item->price * $item->quantity,2) }}</th>
-							<th> <a href="{{ route('cart-delete', $item->slug) }}" class="btn btn-danger"><i class="fa fa-remove"></i></a></th>
+							<th>${{ number_format($item->price * $item->quantity, 2) }}</th>
+							<th><a href="{{ route('cart-delete', $item->slug) }}" class="btn btn-danger"><i class="fa fa-remove"></i></a></th>
+						</tr>
+						<tr>
+							<script>
+								function sumar() {
+
+									  var total = {{ $item->price }};
+
+									  $(".monto").each(function() {
+
+									    if (isNaN(parseFloat($(this).val()))) {
+
+									      total += 0;
+
+									    } else {
+
+									      total *= parseFloat($(this).val());
+
+									    }
+
+									  });
+
+									  //alert(total);
+									  document.getElementById('spTotal').innerHTML = total;
+
+									}
+
+							</script>
 						</tr>		
 					@endforeach
 				
@@ -54,7 +71,7 @@
 		</table><hr>
 		<h3>
 			<span class="label label-success">
-				Total : ${{ number_format($total,2) }}
+				Total: ${{ number_format($total)}}  
 			</span>
 		</h3>
 	</div>
@@ -73,6 +90,7 @@
 		</a>
 		@endif
 	</p>
+
 	</div>
 </div>
 @endsection

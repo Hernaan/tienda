@@ -1,0 +1,40 @@
+
+<script>
+function sumar() {
+
+  var total = 0;
+
+  $(".monto").each(function() {
+
+    if (isNaN(parseFloat($(this).val()))) {
+
+      total += 0;
+
+    } else {
+
+      total += parseFloat($(this).val());
+
+    }
+
+  });
+
+  //alert(total);
+  document.getElementById('spTotal').innerHTML = total;
+
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<span>Valor #1</span>
+<input type="text" id="txt_campo_1" class="monto" onkeyup="sumar();" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"/>
+<br/>
+
+<span>Valor #2</span>
+<input type="text" id="txt_campo_2" class="monto" onkeyup="sumar();" />
+<br/>
+
+<span>Valor #3</span>
+<input type="text" id="txt_campo_3" class="monto" onkeyup="sumar();" />
+<br/>
+
+<span>El resultado es: </span> <span id="spTotal"></span>
